@@ -38,7 +38,11 @@ xp.object('my-shop', 'shop', ['owner']);
 
 // get all goods of a shop by its shop id
 xp.stream('goods-for-shop', 'goods', ['shop']);
-
+xp.after('goods-for-shop', function(req, ctx, input, status, output, next, cb) {
+  if(output.slice)
+    output.slice[0].add = 'add';
+  next();
+});
 // extremejs internal key, for encrypted data
 xp.setKey('123456');
 
