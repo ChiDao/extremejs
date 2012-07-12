@@ -10,6 +10,9 @@ xp.entity('user', {
   shop: ['my-shop', ['$_id']],
   test: ['my-shop', ['hello']]
 });
+xp.embed('user', {
+  shop:{goods:null}
+});
 
 // shop table
 xp.entity('shop', {
@@ -38,8 +41,9 @@ xp.object('my-shop', 'shop', ['owner']);
 
 // get all goods of a shop by its shop id
 xp.stream('goods-for-shop', 'goods', ['shop']);
+xp.setCount('goods-for-shop');
 xp.after('goods-for-shop', function(req, ctx, input, status, output, next, cb) {
-  if(output.slice)
+  if(output && output.slice)
     output.slice[0].add = 'add';
   next();
 });
