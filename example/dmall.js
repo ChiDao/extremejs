@@ -11,7 +11,7 @@ xp.entity('user', {
   test: ['my-shop', ['hello']]
 });
 xp.embed('user', {
-  shop:{goods:null}
+  shop:{"goods~1":null}
 });
 
 // shop table
@@ -35,9 +35,6 @@ xp.object('user-by-username', 'user', ['username']);
 
 // signup
 xp.stream('signup', 'user', []);
-xp.embed('signup', {
-  shop:null
-});
 
 // get my-shop by user id
 xp.object('my-shop', 'shop', ['owner']);
