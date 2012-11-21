@@ -11,7 +11,7 @@ xp.entity('user', {
   test: ['my-shop', ['hello']]
 });
 xp.embed('user', {
-  shop:{"goods~1":null}
+  shop:{"goods~1":{shop:null}}
 });
 
 // shop table
