@@ -3,12 +3,11 @@ var http = require('http');
 
 
 xp.entity('chat', {
-  roomName: 'string',
   userName: 'string',
-  message: 'string',
+  message: 'string'
 });
 
-xp.stream('room', 'chat', ['roomName']);
+xp.stream('room', 'chat', []);
 xp.setComet('room');
 
 xp.setKey('123456');
